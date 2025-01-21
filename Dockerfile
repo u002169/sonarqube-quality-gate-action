@@ -1,4 +1,4 @@
-FROM registry.devneon.com.br/library/node:16-alpine
+FROM public.ecr.aws/docker/library/node:16.16-alpine
 
 COPY . .
 RUN npm ci && npm install -g typescript && tsc
