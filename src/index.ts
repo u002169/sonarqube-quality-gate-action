@@ -19,11 +19,7 @@ import { findComment } from "./modules/find-comment/main";
       pullRequest: core.getInput("pull-request"),
       githubToken: core.getInput("github-token"),
     };
-
-    console.log("PASSEI AQUI");
-    console.error("PASSEI AQUI COM ERRO");
-    core.setOutput("PASSEI AQUI OUTPUT","PASSEI AQUI OUTPUT");
-
+    
     const result = await fetchQualityGate(
       inputs.hostURL,
       inputs.projectKey,
