@@ -22,7 +22,7 @@ import { findComment } from "./modules/find-comment/main";
 
     console.log("PASSEI AQUI");
     console.error("PASSEI AQUI COM ERRO");
-    core.setOutput("PASSEI AQUI OUTPUT");
+    core.setOutput("PASSEI AQUI OUTPUT","PASSEI AQUI OUTPUT");
 
     const result = await fetchQualityGate(
       inputs.hostURL,
