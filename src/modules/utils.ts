@@ -6,11 +6,11 @@
 export const getStatusEmoji = (status: string) => {
   switch (status) {
     case "OK":
-      return ":white_check_mark: OK";
+      return ":green_circle: OK";
     case "ERROR":
-      return ":exclamation: REPROVADO";
+      return ":red_circle: REPROVADO";
     case "WARN":
-      return ":warning: Warning";
+      return ":yellow_circle: Warning";
     default: // "NONE" and others
       return ":grey_question:";
   }
