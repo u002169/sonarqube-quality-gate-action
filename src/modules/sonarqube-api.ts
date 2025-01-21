@@ -26,6 +26,7 @@ export const fetchQualityGate = async (
   const response = await axios.get<QualityGate>(
     `${url}/api/qualitygates/project_status`,
     {
+      params,
       auth: {
         username: token,
         password: "",
