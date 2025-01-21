@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM registry.devneon.com.br/library/node:16-alpine
 
 COPY . .
 RUN npm ci && npm install -g typescript && tsc
