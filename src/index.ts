@@ -34,6 +34,8 @@ import { findComment } from "./modules/find-comment/main";
     const isPR = github.context.eventName == "pull_request";
 
     if (isPR && !inputs.commentDisabled) {
+      console.log("Processo de Report para PR");
+      
       if (!inputs.githubToken) {
         throw new Error(
           "`inputs.github-token` is required for result comment creation."
@@ -43,6 +45,8 @@ import { findComment } from "./modules/find-comment/main";
       const { context } = github;
       const octokit = github.getOctokit(inputs.githubToken);
 
+      console.log("Processo de build do Report");
+      
       const reportBody = buildReport(
         result,
         inputs.hostURL,
