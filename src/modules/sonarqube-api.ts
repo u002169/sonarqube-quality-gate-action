@@ -21,6 +21,8 @@ export const fetchQualityGate = async (
     ...(pullRequest && { pullRequest }),
   };
 
+  console.log("params:" + params);
+
   const response = await axios.get<QualityGate>(
     `${url}/api/qualitygates/project_status`,
     {
