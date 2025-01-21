@@ -54,7 +54,7 @@ export const buildReport = (
   branch?: string,
   pullRequest?: string
 ) => {
-  const reportUrl = buildReportUrl(hostURL, projectKey, branch, pullRequest);
+  const reportUrl = buildReportUrl(hostURL, projectKey);
   const projectStatus = getStatusEmoji(result.projectStatus.status);
 
   const resultTable = result.projectStatus.conditions.map(buildRow).join("\n");
@@ -63,7 +63,7 @@ export const buildReport = (
 
   const resultContext = [
     `- **Result**: ${projectStatus}`,
-    ...(branch ? [`- **Branch**: \`${branch}\``] : []),
+    // ...(branch ? [`- **Branch**: \`${branch}\``] : []),
     ...(pullRequest ? [`- **Pull Request**: #${pullRequest}`] : []),
     `- Triggered by @${context.actor} on \`${context.eventName}\``,
   ];
@@ -71,7 +71,7 @@ export const buildReport = (
   return `### SonarQube Quality Gate Result
 ${resultContext.join("\n")}
 
-| Metric | Status | Value | Error Threshold |
+| Critério | Parecer | Valor Resultado | Threshold |
 |:------:|:------:|:-----:|:---------------:|
 ${resultTable}
 
