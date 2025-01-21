@@ -16,9 +16,7 @@ export const fetchQualityGate = async (
 
   // Only include `branch` or `pullRequest` in the params object if they are defined
   const params = {
-    projectKey,
-    ...(branch && { branch }),
-    ...(pullRequest && { pullRequest }),
+    projectKey
   };
 
   console.log("params2:" + JSON.stringify(params));
