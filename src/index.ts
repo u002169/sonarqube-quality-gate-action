@@ -19,6 +19,8 @@ import { findComment } from "./modules/find-comment/main";
       pullRequest: core.getInput("pull-request"),
       githubToken: core.getInput("github-token"),
     };
+
+    console.log("API QG");
     
     const result = await fetchQualityGate(
       inputs.hostURL,
