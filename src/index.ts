@@ -20,6 +20,10 @@ import { findComment } from "./modules/find-comment/main";
       githubToken: core.getInput("github-token"),
     };
 
+    console.log("PASSEI AQUI");
+    console.error("PASSEI AQUI COM ERRO");
+    core.setOutput("PASSEI AQUI OUTPUT");
+
     const result = await fetchQualityGate(
       inputs.hostURL,
       inputs.projectKey,
