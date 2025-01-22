@@ -4,17 +4,9 @@ import { QualityGate } from "./models";
 export const fetchQualityGate = async (
   url: string,
   projectKey: string,
-  token: string,
-  branch?: string,
-  pullRequest?: string
-): Promise<QualityGate> => {
-  if (branch && pullRequest) {
-    throw new Error(
-      "The `branch` and `pull-request` inputs are mutually exclusive and cannot be used together"
-    );
-  }
+  token: string
+)
 
-  // Only include `branch` or `pullRequest` in the params object if they are defined
   const params = {
     projectKey
   };
