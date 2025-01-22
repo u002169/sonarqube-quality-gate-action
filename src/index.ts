@@ -35,9 +35,7 @@ import { findComment } from "./modules/find-comment/main";
 
     const isPR = github.context.eventName == "pull_request";
 
-    if (isPR && !inputs.commentDisabled) {
-      console.log("Processo de Report para PR");
-      
+    if (isPR && !inputs.commentDisabled) {      
       if (!inputs.githubToken) {
         throw new Error(
           "`inputs.github-token` is required for result comment creation."
@@ -46,8 +44,6 @@ import { findComment } from "./modules/find-comment/main";
 
       const { context } = github;
       const octokit = github.getOctokit(inputs.githubToken);
-
-      console.log("Processo de build do Report");
       
       const reportBody = buildReport(
         result,
@@ -57,8 +53,6 @@ import { findComment } from "./modules/find-comment/main";
         inputs.branch,
         inputs.pullRequest
       );
-
-      console.log("Finding comment associated with the report...");
 
       const issueComment = await findComment({
         token: inputs.githubToken,
@@ -91,7 +85,7 @@ import { findComment } from "./modules/find-comment/main";
       }
     }
 
-    let resultMessage = `Quality gate status for \`${inputs.projectKey}\` returned \`${result.projectStatus.status}\``;
+    let resultMessage = `Parecer do Quality Gate é de: \`${inputs.projectKey}\` returned \`${result.projectStatus.status}\``;
     if (
       inputs.failOnQualityGateError &&
       result.projectStatus.status === "ERROR"
