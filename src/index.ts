@@ -40,10 +40,11 @@ import { findComment } from "./modules/find-comment/main";
       const { context } = github;
       const octokit = github.getOctokit(inputs.githubToken);
 
-      console.log(JSON.stringify(github.context));
-      console.log(JSON.stringify(github));
-
-      const pr_number = github.context.payload.pull_request.number.toString();
+      console.log("github= " + JSON.stringify(github));
+      console.log("github.context= " + JSON.stringify(github.context));
+      console.log("context= " + JSON.stringify(context));
+     
+      const pr_number = 99//github.context.payload.pull_request.number.toString();
       console.log(pr_number);
         
       const reportBody = buildReport(
