@@ -42,14 +42,16 @@ import { findComment } from "./modules/find-comment/main";
 
       console.log(JSON.stringify(github.context));
       console.log(JSON.stringify(github));
-      
+
+      const pr_number = context.payload.pull_request.number.toString();
+      console.log(pr_number);
+        
       const reportBody = buildReport(
         result,
         inputs.hostURL,
         inputs.projectKey,
         context,
-        inputs.branch,
-        context.eventName.payload.pull_request.number.toString()
+        pr_number
       );
 
       const issueComment = await findComment({
