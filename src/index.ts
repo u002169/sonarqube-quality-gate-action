@@ -45,7 +45,7 @@ import { findComment } from "./modules/find-comment/main";
         inputs.hostURL,
         inputs.projectKey,
         context,
-        context.issue.number
+        context.issue.number.toString()
       );
 
       const issueComment = await findComment({
