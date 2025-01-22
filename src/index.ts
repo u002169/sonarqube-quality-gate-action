@@ -25,7 +25,7 @@ import { findComment } from "./modules/find-comment/main";
       inputs.projectKey,
       inputs.token,
       inputs.branch,
-      inputs.pullRequest
+      github.context.payload.pullRequest.number
     );
 
     core.setOutput("project-status", result.projectStatus.status);
