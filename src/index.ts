@@ -15,7 +15,6 @@ import { findComment } from "./modules/find-comment/main";
       commentDisabled: core.getInput("disable-pr-comment") === "true",
       failOnQualityGateError:
         core.getInput("fail-on-quality-gate-error") === "true",
-      branch: core.getInput("branch"),
       pullRequest: core.getInput("pull-request"),
       githubToken: core.getInput("github-token"),
     };
@@ -50,7 +49,7 @@ import { findComment } from "./modules/find-comment/main";
         inputs.projectKey,
         context,
         inputs.branch,
-        inputs.pullRequest
+        context.eventName.payload.pull_request.number.toString();
       );
 
       const issueComment = await findComment({
