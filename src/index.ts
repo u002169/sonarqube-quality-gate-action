@@ -39,24 +39,13 @@ import { findComment } from "./modules/find-comment/main";
 
       const { context } = github;
       const octokit = github.getOctokit(inputs.githubToken);
-
-      console.log("github= " + JSON.stringify(github));
-      console.log("github.context= " + JSON.stringify(github.context));
-      console.log("context= " + JSON.stringify(context));
-
-      console.log("context.repo.repo= " + context.repo.repo);
-      console.log("context.repo.owner= " + context.repo.owner);
-      console.log("context.issue.number= " + context.issue.number);
-     
-      const pr_number = "99";//github.context.payload.pull_request.number.toString();
-      console.log(pr_number);
         
       const reportBody = buildReport(
         result,
         inputs.hostURL,
         inputs.projectKey,
         context,
-        pr_number
+        context.issue.number
       );
 
       const issueComment = await findComment({
