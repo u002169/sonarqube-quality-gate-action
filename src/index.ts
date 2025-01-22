@@ -86,7 +86,7 @@ import { findComment } from "./modules/find-comment/main";
       }
     }
 
-    let resultMessage = `Parecer do Quality Gate é de: \`${inputs.projectKey}\` returned \`${result.projectStatus.status}\``;
+    let resultMessage = `Parecer Quality Gate do projeto: \`${inputs.projectKey}\` > \`${result.projectStatus.status}\``;
     if (
       inputs.failOnQualityGateError &&
       result.projectStatus.status === "ERROR"
