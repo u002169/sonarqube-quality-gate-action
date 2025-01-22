@@ -25,21 +25,18 @@ const buildRow = (condition: Condition) => {
  *
  * @param hostUrl - The base URL of the SonarQube server.
  * @param projectKey - The unique key of the project in SonarQube.
- * @param branch - (Optional) The branch name to include in the report URL.
  * @param pullRequest - (Optional) The pull request identifier to include in the report URL.
  * @returns The constructed SonarQube report URL.
  */
 const buildReportUrl = (
   hostUrl: string,
   projectKey: string,
-  branch?: string,
   pullRequest?: string
 ) => {
   const baseUrl = `${trimTrailingSlash(hostUrl)}/dashboard`;
 
   const urlParams = new URLSearchParams({
     id: projectKey,
-    ...(branch && { branch }),
     ...(pullRequest && { pullRequest }),
   });
 
@@ -51,7 +48,6 @@ export const buildReport = (
   hostURL: string,
   projectKey: string,
   context: Context,
-  branch?: string,
   pullRequest?: string
 ) => {
   const reportUrl = buildReportUrl(hostURL, projectKey);
@@ -63,7 +59,6 @@ export const buildReport = (
 
   const resultContext = [
     `- **Parecer final**: ${projectStatus}`,
-    // ...(branch ? [`- **Branch**: \`${branch}\``] : []),
     ...(pullRequest ? [`- **Pull Request**: #${pullRequest}`] : []),
     `- Solicitado por: @${context.actor} on \`${context.eventName}\``,
   ];
