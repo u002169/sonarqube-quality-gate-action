@@ -44,6 +44,9 @@ import { findComment } from "./modules/find-comment/main";
 
       const { context } = github;
       const octokit = github.getOctokit(inputs.githubToken);
+
+      console.log(JSON.stringify(githube.context));
+      console.log(JSON.stringify(githube));
       
       const reportBody = buildReport(
         result,
