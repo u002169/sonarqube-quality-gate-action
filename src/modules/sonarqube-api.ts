@@ -5,7 +5,7 @@ export const fetchQualityGate = async (
   url: string,
   projectKey: string,
   token: string
-)
+) => {
 
   const params = {
     projectKey
