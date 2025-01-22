@@ -49,7 +49,7 @@ import { findComment } from "./modules/find-comment/main";
         inputs.projectKey,
         context,
         inputs.branch,
-        context.eventName.payload.pull_request.number.toString();
+        context.eventName.payload.pull_request.number.toString()
       );
 
       const issueComment = await findComment({
