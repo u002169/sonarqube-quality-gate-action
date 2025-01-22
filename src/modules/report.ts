@@ -72,7 +72,7 @@ export const buildReport = (
 ${resultContext.join("\n")}
 
 | Critério | Parecer | Resultado | Threshold |
-|:------:|:------:|:-----:|:---------------:|
+|:--------:|:-------:|:---------:|:---------:|
 ${resultTable}
 
 [Para análise detalhada, acesse o SonarQube](${reportUrl})
