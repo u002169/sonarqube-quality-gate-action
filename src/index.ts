@@ -46,7 +46,7 @@ import { findComment } from "./modules/find-comment/main";
 
       console.log("context.repo.repo= " + context.repo.repo);
       console.log("context.repo.owner= " + context.repo.owner);
-      console.log("context.issue.numbe= " + context.issue.numbe);
+      console.log("context.issue.context= " + context.issue.context);
      
       const pr_number = "99";//github.context.payload.pull_request.number.toString();
       console.log(pr_number);
