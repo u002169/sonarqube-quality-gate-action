@@ -43,7 +43,7 @@ import { findComment } from "./modules/find-comment/main";
       console.log(JSON.stringify(github.context));
       console.log(JSON.stringify(github));
 
-      const pr_number = context.payload.pull_request.number.toString();
+      const pr_number = github.context.payload.pull_request.number.toString();
       console.log(pr_number);
         
       const reportBody = buildReport(
