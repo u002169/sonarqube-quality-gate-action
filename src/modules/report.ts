@@ -62,19 +62,19 @@ export const buildReport = (
   const { value: updatedDate, offset: updatedOffset } = getCurrentDateTime();
 
   const resultContext = [
-    `- **Result**: ${projectStatus}`,
+    `- **Parecer final**: ${projectStatus}`,
     // ...(branch ? [`- **Branch**: \`${branch}\``] : []),
     ...(pullRequest ? [`- **Pull Request**: #${pullRequest}`] : []),
-    `- Triggered by @${context.actor} on \`${context.eventName}\``,
+    `- Solicitado por: @${context.actor} on \`${context.eventName}\``,
   ];
 
   return `### SonarQube Quality Gate Result
 ${resultContext.join("\n")}
 
-| Critério | Parecer | Valor Resultado | Threshold |
+| Critério | Parecer | Resultado | Threshold |
 |:------:|:------:|:-----:|:---------------:|
 ${resultTable}
 
-[View on SonarQube](${reportUrl})
+[Para análise detalhada, acesse o SonarQube](${reportUrl})
 ###### _updated: ${updatedDate} (${updatedOffset})_`;
 };
